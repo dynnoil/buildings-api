@@ -5,7 +5,8 @@ const faker = require('faker');
 const generateRandomItem = () => ({
     name: faker.lorem.word(),
     description: faker.lorem.words(),
-    image: faker.image.imageUrl()
+    image: faker.image.imageUrl(),
+    content: faker.lorem.paragraphs()
 });
 
 const DEFAULT_ITEMS_COUNT = 30;

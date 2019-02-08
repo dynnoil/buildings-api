@@ -6,9 +6,9 @@ const Building = require('../model/building');
 router.get('/', function (request, response) {
     const lastItemId = request.query.lastItemId;
     const pageSize = parseInt(request.query.pageSize);
-    const condition = lastItemId == undefined || lastItemId === 'undefined' ? {} : { '_id': { '$gt': lastItemId } };
+    const condition = lastItemId == undefined || lastItemId === 'undefined' ? {} : { _id: { '$gt': lastItemId } };
     Building
-        .find(condition)
+        .find(condition, { name: 1, description: 1, image: 1 })
         .limit(pageSize)
         .exec(function (error, result) {
             if (error) {
@@ -20,6 +20,17 @@ router.get('/', function (request, response) {
                 });
             }
         });
+});
+
+router.get('/:id', function (request, response) {
+    const id = request.params.id;
+    Building.findById(id, function (error, building) {
+        if (error) {
+            response.send(error);
+        } else {
+            response.json(building);
+        }
+    });
 });
 
 module.exports = router;

@@ -9,7 +9,10 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var buildingsRouter = require('./routes/buildings');
 
-mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true });
+mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}`, {
+  useNewUrlParser: true,
+  dbName: process.env.DB_NAME
+});
 
 var app = express();
 
