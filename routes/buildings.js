@@ -22,7 +22,19 @@ router.get('/', function (request, response) {
         });
 });
 
-router.get('/:id', function (request, response) {
+router.get('/locations', function (request, response) {
+    Building
+        .find({}, { name: 1, location: 1 })
+        .exec(function (error, result) {
+            if (error) {
+                response.send(error);
+            } else {
+                response.json(result);
+            }
+        });
+});
+
+router.get('/detail/:id', function (request, response) {
     const id = request.params.id;
     Building.findById(id, function (error, building) {
         if (error) {

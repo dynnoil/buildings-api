@@ -6,6 +6,10 @@ const generateRandomItem = () => ({
     name: faker.lorem.word(),
     description: faker.lorem.words(),
     image: faker.image.imageUrl(),
+    location: {
+        latitude: faker.address.latitude(),
+        longitude: faker.address.longitude()
+    },
     content: faker.lorem.paragraphs()
 });
 
