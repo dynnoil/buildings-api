@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const Building = require('../model/building');
+const Building = require('../model/Building');
 
 router.get('/', function (request, response) {
     const lastItemId = request.query.lastItemId;

@@ -1,0 +1,24 @@
+{
+    "bsonType": "object",
+    "required": [
+        "name"
+    ],
+    "properties": {
+        "name": {
+            "bsonType": "string",
+            "description": "A name of an architectural style",
+            "maxLength": 140
+        },
+        "url": {
+            "bsonType": "string",
+            "description": "An url to an additional information about an architectural style",
+            "pattern": "^([--:\\w?@%&+~#=]*\\.[a-z]{2,4}\/{0,2})((?:[?&](?:\\w+)=(?:\\w+))+|[--:\\w?@%&+~#=]+)?$"
+        },
+        "description": {
+            "bsonType": "string",
+            "description": "A short description of an architectural style",
+            "maxLength": 280
+        }
+    },
+    "additionalProperties": false
+}

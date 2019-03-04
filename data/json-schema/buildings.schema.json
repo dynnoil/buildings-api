@@ -1,0 +1,71 @@
+{
+    "bsonType": "object",
+    "required": [
+        "name",
+        "description",
+        "location.address",
+        "location.geoPosition"
+    ],
+    "properties": {
+        "name": {
+            "bsonType": "string",
+            "description": "A name of a building",
+            "maxLength": 140
+        },
+        "description": {
+            "bsonType": "string",
+            "description": "A short description of a building",
+            "maxLength": 280
+        },
+        "image": {
+            "bsonType": "string",
+            "description": ""
+        },
+        "content": {
+            "bsonType": "string",
+            "description": ""
+        },
+        "location.address": {
+            "bsonType": "string",
+            "description": ""
+        },
+        "location.geoPosition": {
+            "bsonType": "object",
+            "description": "",
+            "required": [
+                "latitude",
+                "longitude"
+            ],
+            "properties": {
+                "latitude": {
+                    "bsonType": "double",
+                    "description": ""
+                },
+                "longitude": {
+                    "bsonType": "double",
+                    "description": ""
+                }
+            },
+            "additionalProperties": false
+        },
+        "architects": {
+            "bsonType": "array",
+            "items": {
+                "bsonType": "string",
+                "description": ""
+            }
+        },
+        "creationYears": {
+            "bsonType": "array",
+            "items": {
+                "bsonType": "int",
+                "description": ""
+            }
+        },
+        "architecturalStyle": {
+            "bsonType": "string",
+            "description": ""
+        }
+    },
+    "additionalProperties": false
+}
