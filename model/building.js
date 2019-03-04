@@ -4,8 +4,17 @@ const BuildingSchema = mongoose.Schema({
     name: String,
     description: String,
     image: String,
-    location: Object,
-    content: String
+    content: String,
+    location: {
+        address: String,
+        geoPosition: {
+            latitude: Number,
+            longitude: Number
+        }
+    },
+    architects: [String],
+    creationYears: [Number],
+    architecturalStyle: String
 });
 
 module.exports = mongoose.model('Building', BuildingSchema, 'buildings');
