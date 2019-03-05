@@ -19,19 +19,21 @@
         },
         "image": {
             "bsonType": "string",
-            "description": ""
+            "description": "An url to a building image",
+            "pattern": "^([--:\\w?@%&+~#=]*\\.[a-z]{2,4}\/{0,2})((?:[?&](?:\\w+)=(?:\\w+))+|[--:\\w?@%&+~#=]+)?$"
         },
         "content": {
             "bsonType": "string",
-            "description": ""
+            "description": "A content of a building post"
         },
         "location.address": {
             "bsonType": "string",
-            "description": ""
+            "maxLength": 280,
+            "description": "An address of a building"
         },
         "location.geoPosition": {
             "bsonType": "object",
-            "description": "",
+            "description": "A geo position of a building",
             "required": [
                 "latitude",
                 "longitude"
@@ -39,32 +41,39 @@
             "properties": {
                 "latitude": {
                     "bsonType": "double",
-                    "description": ""
+                    "description": "A latitude coordinate"
                 },
                 "longitude": {
                     "bsonType": "double",
-                    "description": ""
+                    "description": "A longitude coordinate"
                 }
             },
             "additionalProperties": false
         },
         "architects": {
             "bsonType": "array",
+            "description": "A list of architects",
             "items": {
                 "bsonType": "string",
-                "description": ""
-            }
+                "description": "A fullname of an architect",
+                "maxLength": 140
+            },
+            "uniqueItems": true
         },
         "creationYears": {
             "bsonType": "array",
+            "description": "Creation years of a building",
             "items": {
                 "bsonType": "int",
-                "description": ""
-            }
+                "minimum": 0,
+                "description": "A creation year of a building"
+            },
+            "uniqueItems": true
         },
         "architecturalStyle": {
             "bsonType": "string",
-            "description": ""
+            "description": "An architectural style of a building",
+            "maxLength": 140
         }
     },
     "additionalProperties": false
