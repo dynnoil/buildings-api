@@ -1,0 +1,51 @@
+{
+    "location.address": {
+        "bsonType": "string",
+        "maxLength": 280,
+        "description": "An address of a building"
+    },
+    "location.geoPosition": {
+        "bsonType": "object",
+        "description": "A geo position of a building",
+        "required": [
+            "latitude",
+            "longitude"
+        ],
+        "properties": {
+            "latitude": {
+                "bsonType": "double",
+                "description": "A latitude coordinate"
+            },
+            "longitude": {
+                "bsonType": "double",
+                "description": "A longitude coordinate"
+            }
+        },
+        "additionalProperties": false
+    },
+    "architects": {
+        "bsonType": "array",
+        "description": "A list of architects",
+        "items": {
+            "bsonType": "string",
+            "description": "A fullname of an architect",
+            "maxLength": 140
+        },
+        "uniqueItems": true
+    },
+    "creationYears": {
+        "bsonType": "array",
+        "description": "Creation years of a building",
+        "items": {
+            "bsonType": "int",
+            "minimum": 0,
+            "description": "A creation year of a building"
+        },
+        "uniqueItems": true
+    },
+    "architecturalStyle": {
+        "bsonType": "string",
+        "description": "An architectural style of a building",
+        "maxLength": 140
+    }
+}

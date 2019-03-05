@@ -1,0 +1,52 @@
+{
+    "bsonType": "object",
+    "required": [
+        "name",
+        "description",
+        "createdAt",
+        "status",
+        "author"
+    ],
+    "properties": {
+        "name": {
+            "bsonType": "string",
+            "description": "A name of a post",
+            "maxLength": 140
+        },
+        "description": {
+            "bsonType": "string",
+            "description": "A short description of a post",
+            "maxLength": 280
+        },
+        "image": {
+            "bsonType": "string",
+            "description": "An url to a post image",
+            "pattern": "^([--:\\w?@%&+~#=]*\\.[a-z]{2,4}\/{0,2})((?:[?&](?:\\w+)=(?:\\w+))+|[--:\\w?@%&+~#=]+)?$"
+        },
+        "content": {
+            "bsonType": "string",
+            "description": "A content of a post post"
+        },
+        "createdAt": {
+            "bsonType": "date",
+            "description": "A creation date of a post"
+        },
+        "updatedAt": {
+            "bsonType": "date",
+            "description": "A update date of a post"
+        },
+        "publishedAt": {
+            "bsonType": "date",
+            "description": "A publication date of a post"
+        },
+        "author": {
+            "bsonType": "objectId",
+            "description": "A reference to an authors collection"
+        },
+        "status": {
+            "bsonType": "objectId",
+            "description": "A reference to a statuses collection"
+        }
+    },
+    "additionalProperties": true
+}
