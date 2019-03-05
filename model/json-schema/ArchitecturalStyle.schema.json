@@ -19,6 +19,5 @@
             "description": "A short description of an architectural style",
             "maxLength": 280
         }
-    },
-    "additionalProperties": false
+    }
 }

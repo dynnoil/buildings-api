@@ -13,8 +13,8 @@ const PostSchema = mongoose.Schema(
         createdAt: Date,
         updatedAt: Date,
         publishedAt: Date,
-        author: String,
-        status: String
+        author: { type: mongoose.Types.ObjectId, ref: 'Author' },
+        status: { type: mongoose.Types.ObjectId, ref: 'PostStatus' }
     },
     postSchemaOptions
 );

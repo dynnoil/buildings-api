@@ -15,6 +15,5 @@
             "maxLength": 280,
             "description": "A short description of a status"
         }
-    },
-    "additionalProperties": false
+    }
 }

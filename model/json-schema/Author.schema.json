@@ -1,0 +1,13 @@
+{
+    "bsonType": "object",
+    "required": [
+        "fullName"
+    ],
+    "properties": {
+        "fullName": {
+            "bjsonType": "string",
+            "maxLength": 140,
+            "description": "A full name of an author"
+        }
+    }
+}

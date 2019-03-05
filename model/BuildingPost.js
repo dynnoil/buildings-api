@@ -23,7 +23,7 @@ const BuildingPostSchema = mongoose.Schema({
     location: { type: LocationSchema, required: true },
     architects: [{ type: String, maxlength: 140 }],
     creationYears: [{ type: Number, min: 0 }],
-    architecturalStyle: { type: String, maxlength: 140 }
+    architecturalStyle: { type: mongoose.Types.ObjectId, ref: 'ArchitecturalStyle' }
 });
 
 module.exports = Post.discriminator('BuildingPost', BuildingPostSchema);

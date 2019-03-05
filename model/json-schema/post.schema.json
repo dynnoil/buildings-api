@@ -47,6 +47,5 @@
             "bsonType": "objectId",
             "description": "A reference to a statuses collection"
         }
-    },
-    "additionalProperties": true
+    }
 }
