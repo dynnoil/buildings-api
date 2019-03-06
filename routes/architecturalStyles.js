@@ -1,13 +1,14 @@
 const express = require('express');
+const createError = require('http-errors');
 
 const ArchitecturalStyle = require('../model/ArchitecturalStyle');
 
 const router = express.Router();
 
-router.post('/', function (request, response) {
+router.post('/', function (request, response, next) {
     ArchitecturalStyle.create(request.body, function (error) {
         if (error) {
-            response.status(500).send(error);
+            next(createError(500, error));
         } else {
             response.json({ message: 'Ok!' });
         }
