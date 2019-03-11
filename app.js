@@ -8,11 +8,12 @@ var mongoose = require('mongoose');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var architecturalStyles = require('./routes/architecturalStyles');
+var postStatuses = require('./routes/postStatuses');
 var buildingsRouter = require('./routes/buildings');
 
 mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}`, {
-  useNewUrlParser: true,
-  dbName: process.env.DB_NAME
+    useNewUrlParser: true,
+    dbName: process.env.DB_NAME
 });
 
 var app = express();
@@ -31,26 +32,27 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/buildings', buildingsRouter);
 app.use('/api/architecturalStyles', architecturalStyles);
+app.use('/api/postStatuses', postStatuses);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  next(createError(404));
+    next(createError(404));
 });
 
 // error handler
 app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  //res.render('error');
-  res.json({
-    status: err.status,
-    title: err.name,
-    detail: err.message
-  });
+    // render the error page
+    res.status(err.status || 500);
+    //res.render('error');
+    res.json({
+        code: err.status,
+        name: err.name,
+        message: err.message
+    });
 });
 
 module.exports = app;
